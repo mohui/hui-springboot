@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class IndexController {
     /**
@@ -14,6 +17,18 @@ public class IndexController {
     @RequestMapping(value = "/say")
     @ResponseBody
     public String say() {
-        return "hello, 西张明的朋友们";
+        String test = "到Application启动, postman访问, localhost:8080/say";
+        return test;
+    }
+
+    /**
+     * 第二个接口测试
+     */
+    @RequestMapping(value = "/mapValue")
+    public @ResponseBody Map<String, Object> mapValue() {
+        Map<String, Object> retMap = new HashMap<>();
+        retMap.put("message", "设置上下文根: server.servlet.context-path=/whh");
+        retMap.put("test", "设置上下文根: server.servlet.context-path=/whh");
+        return retMap;
     }
 }
